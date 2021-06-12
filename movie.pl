@@ -5,6 +5,21 @@ elem(X,[_|Tail]) :- elem(X,Tail).
 %Check whether lists have a common element
 elems(X,[Y|_]) :- elem(Y,X).
 elems(X,[_|Tail]) :- elems(X,Tail).
+   
+list_movie(Director,Categories,Min,Max,Stream,Theme, L) :-
+    list_movie(Director,Categories,Min,Max,Stream,Theme, [], L).
+
+list_movie(Director,Categories,Min,Max,Stream,Theme, Acc, L) :-
+    movie(Movie,Director,Category,Length,Streamings,Themes),
+    elems(Theme,Themes),
+    elem(Stream,Streamings),
+    elem(Category,Categories),
+    Length > Min,
+    Length < Max,
+    \+ elem(Movie, Acc), !,
+    list_movie(Director,Categories,Min,Max,Stream,Theme,[Movie|Acc], L). 
+
+list_movie(_,_,_,_,_,_, L, L).
 
 %Suggest movie to a user
 suggest_movie(M) :- 
@@ -30,13 +45,9 @@ suggest_movie(M) :-
     read(Min),
     write('Type maximum length of film in minutes: '),
     read(Max),
-    get_theme(Mood,Themes),
-    movie(M,Director,Category,Length,Streamings,Themes2),
-    elems(Themes,Themes2),
-    elem(Stream,Streamings),
-    elem(Category,Categories),
-    Length > Min,
-    Length < Max.
+    get_theme(Mood,Theme),
+    list_movie(Director,Categories,Min,Max,Stream,Theme,M).
+    
 
 %Get categories from user's age
 get_category(Age,X) :- Age < 7, X = [g].
@@ -56,7 +67,7 @@ get_theme(Mood,X) :-
 
 get_theme(Mood,X) :-
     Mood = scared,
-    X = [comedy,family,fantasy,musical].
+    X = [family,fantasy,musical].
 
 get_theme(Mood,X) :-
     Mood = angry,
