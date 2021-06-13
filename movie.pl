@@ -14,8 +14,8 @@ list_movie(Director,Categories,Min,Max,Stream,Theme, Acc, L) :-
     elems(Theme,Themes),
     elem(Stream,Streamings),
     elem(Category,Categories),
-    Length > Min,
-    Length < Max,
+    Length > Min-1,
+    Length < Max+1,
     \+ elem(Movie, Acc), !,
     list_movie(Director,Categories,Min,Max,Stream,Theme,[Movie|Acc], L). 
 
@@ -67,7 +67,7 @@ get_theme(Mood,X) :-
 
 get_theme(Mood,X) :-
     Mood = scared,
-    X = [family,fantasy,musical].
+    X = [family,fantasy,musical,comedy].
 
 get_theme(Mood,X) :-
     Mood = angry,
