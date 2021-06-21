@@ -12,7 +12,9 @@
   - [Contact](#contact)
 
 ## Screenshots
+![Example screenshot](ex1.png)
 
+![Example screenshot](ex2.png)
 
 ## Technologies
 * Prolog
@@ -28,11 +30,11 @@ Choosing movie by your preferences
 
 
 ## Status
-Project is: _in progress_.
+Project is: _completed_.
 
 ## Inspiration
 Project for Foundations of declarative programming classes in Prolog
 
 ## Contact
-Created by [@HondaPL](https://hacia.students.wmi.amu.edu.pl/) 2021
-
+Created by [Adam Hącia](https://hacia.students.wmi.amu.edu.pl/) and [Aleksander Piaskowski](#) 
+2021

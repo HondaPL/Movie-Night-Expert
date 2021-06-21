@@ -21,7 +21,7 @@ list_movie(Director,Categories,Min,Max,Stream,Theme, Acc, L) :-
 
 list_movie(_,_,_,_,_,_, L, L).
 
-%Suggest movie to a user
+%Suggest movie to an user
 suggest_movie(M) :- 
     write('Type your age: '),
     read(Age),
@@ -39,7 +39,7 @@ suggest_movie(M) :-
     kelly_asbury   clint_eastwood   nick_cassavetes   dawid_russell
     :\n'),
     read(Director),
-    write('Choose your streaming platforms: \n   netflix   hbogo   prime   disney:\n'),
+    write('Choose your streaming platform: \n   netflix   hbogo   prime   disney:\n'),
     read(Stream),
     write('Type minimum length of film in minutes: '),
     read(Min),

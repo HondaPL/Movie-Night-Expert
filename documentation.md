@@ -13,8 +13,7 @@
 
 ## Zespół
 * Adam Hącia 
-* Aleksander Piaskowksi
-
+* Aleksander Piaskowski
 ## Założenia systemu
 
 Movie Night Expert, to system ekspertowy (ekspercki), 
